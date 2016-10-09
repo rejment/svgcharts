@@ -26,7 +26,7 @@ document.querySelectorAll("[data-pie-chart]").forEach(function(div) {
     slices.forEach(function(slice,i) {
         angle += slice*2*Math.PI/sum;
         var pt = [40 * Math.cos(angle), 40 * Math.sin(angle)].join(",");
-        svg.push("<path d=\"M", prev, "A40 40 0 "+(slice>(sum/2)?1:0)+",1 ", pt, "L0,0Z\" fill=\"#", color(i/slices.length), "\" stroke=\"white\"/>");
+        svg.push("<path d=\"M", prev, "A40 40 0 "+(slice>(sum/2)?1:0)+",1 ", pt, "L0,0Z\" fill=\"#", color(i/(slices.length-1)), "\" stroke=\"white\"/>");
         prev = pt;
     });
     svg.push("</g></svg>");
